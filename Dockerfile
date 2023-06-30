@@ -4,6 +4,11 @@
 # Use react-native-android as the base image
 FROM reactnativecommunity/react-native-android:latest
 
+# Set up environment variables
+# fastlane requires some environment variables set up to run correctly. In particular, having your locale not set to a UTF-8 locale will cause issues with building and uploading your build. In your shell profile add the following lines:
+ENV LANG C.UTF-8
+ENV LC_ALL C.UTF-8
+
 # Install Ruby and Ruby dependencies for Fastlane
 RUN apt-get update && apt-get install -y \
     ruby-full \
